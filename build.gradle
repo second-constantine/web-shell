@@ -1,0 +1,29 @@
+apply plugin: "java"
+apply plugin: "org.springframework.boot"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web:2.0.2.RELEASE"
+    compile "io.springfox:springfox-swagger2:2.8.0"
+    compile "io.springfox:springfox-spi:2.8.0"
+    compile "io.springfox:springfox-swagger-ui:2.8.0"
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE"
+    }
+}
+
+jar {
+    baseName = "web-shell"
+    manifest {
+        attributes "Main-Class": "io.secondconstantine.shell.ShellApp"
+    }
+}
