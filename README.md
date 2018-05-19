@@ -1,5 +1,5 @@
 # web-shell
-**tags:** spring-boot, swagger, unix, shell, terminal, command line
+**tags:** java, spring-boot, gradle, swagger, unix, bash, shell, terminal, command line
 
 **how build:**
 ```
