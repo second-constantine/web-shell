@@ -1,5 +1,5 @@
 # web-shell
-**tags:** java, spring-boot, gradle, swagger, unix, bash, shell, terminal, command line
+**tags:** kotlin, shell
 
 **how build:**
 ```
@@ -8,7 +8,7 @@ gradle clean build
 
 **how run:**
 ```
-java -jar ./build/libs/web-shell.jar
+java -jar ./build/libs/web-shell.jar 8080
 ```
 
 **example how use:**

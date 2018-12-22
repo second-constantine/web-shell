@@ -1,4 +1,4 @@
-apply plugin: "java"
+apply plugin: "kotlin" // Required for Kotlin integration
 apply plugin: "org.springframework.boot"
 
 repositories {
@@ -6,24 +6,40 @@ repositories {
 }
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-web:2.0.2.RELEASE"
-    compile "io.springfox:springfox-swagger2:2.8.0"
-    compile "io.springfox:springfox-spi:2.8.0"
-    compile "io.springfox:springfox-swagger-ui:2.8.0"
+    compile "log4j:log4j:1.2.14"
+    compile "org.apache.logging.log4j:log4j-api:2.1"
+    compile "org.apache.logging.log4j:log4j-core:2.1"
+    compile "org.jetbrains.kotlin:kotlin-reflect"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs = ["-Xjsr305=strict"]
+    }
 }
 
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.11"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:1.3.11"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.1.0.RELEASE"
     }
 }
 
 jar {
     baseName = "web-shell"
-    manifest {
-        attributes "Main-Class": "io.secondconstantine.shell.ShellApp"
-    }
+    version = "1.0-SNAPSHOT"
+}
+
+bootJar {
+    launchScript()
 }
