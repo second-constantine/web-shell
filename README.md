@@ -8,7 +8,7 @@ gradle clean build
 
 **how run:**
 ```
-java -jar ./build/libs/web-shell.jar 8080
+./build/libs/web-shell.jar 8080
 ```
 
 **example how use:**
