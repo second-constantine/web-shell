@@ -16,9 +16,3 @@ open in browser
 ```
 http://localhost:8080/shell/uname -a
 ```
-
-**supply:**
-all unix
-
-**tested:**
-OS X 10.11 El Capitan, Ubuntu 16.04 LTS
