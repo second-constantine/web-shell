@@ -1,4 +1,4 @@
-package io.secondconstantine.shell
+package by.next.way.shell
 
 object OsUtils {
 

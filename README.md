@@ -14,5 +14,5 @@ gradle clean build
 **example how use:**
 open in browser
 ```
-http://localhost:8080/shell/uname -a
+http://localhost:8080/uname -a
 ```

@@ -1,4 +1,4 @@
-package io.secondconstantine.shell
+package by.next.way.shell
 
 import java.io.BufferedReader
 import java.io.IOException
