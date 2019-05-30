@@ -1,8 +1,6 @@
 package by.next.way.shell
 
-import java.io.BufferedReader
 import java.io.IOException
-import java.io.InputStreamReader
 
 
 object Shell {
@@ -17,14 +15,8 @@ object Shell {
                         command
                     }
             )
-            val reader = BufferedReader(InputStreamReader(process.inputStream))
-            val errorReader = BufferedReader(InputStreamReader(process.errorStream))
-            reader.lines().limit(LIMIT).forEach {
-                output.append(it).append("\n")
-            }
-            errorReader.lines().limit(LIMIT).forEach {
-                output.append(it).append("\n")
-            }
+            output.append(process.inputStream.bufferedReader().use { it.readText() })
+            output.append(process.errorStream.bufferedReader().use { it.readText() })
         } catch (ie: InterruptedException) {
             output.append(ie.toString())
         } catch (io: IOException) {
@@ -32,6 +24,4 @@ object Shell {
         }
         return output.toString()
     }
-
-    private const val LIMIT = 200L
 }

